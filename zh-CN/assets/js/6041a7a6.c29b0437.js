@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdoris_website=self.webpackChunkdoris_website||[]).push([[38161],{34809:e=>{e.exports=JSON.parse('{"permalink":"/zh-CN/blog/tags/release-notes","page":1,"postsPerPage":4,"totalPages":1,"totalCount":4,"blogDescription":"Apache Doris Blog","blogTitle":"Blogs"}')}}]);
