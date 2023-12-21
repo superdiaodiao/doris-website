@@ -36,7 +36,7 @@
             <category>Best Practice</category>
         </item>
         <item>
-            <title><![CDATA[How Big Data Is Saving Lives in Real Time: IoV Data Analytics Helps Prevent Accidents]]></title>
+            <title><![CDATA[How big data is saving lives in real time: IoV data analytics helps prevent accidents]]></title>
             <link>https://doris.apache.org/blog/how-big-data-is-saving-lives-in-real-time-iov-data-analytics-helps-prevent-accidents</link>
             <guid>https://doris.apache.org/blog/how-big-data-is-saving-lives-in-real-time-iov-data-analytics-helps-prevent-accidents</guid>
             <pubDate>Wed, 29 Nov 2023 00:00:00 GMT</pubDate>
@@ -45,7 +45,7 @@
             <category>Best Practice</category>
         </item>
         <item>
-            <title><![CDATA[Less Components, Higher Performance: Apache Doris Instead of ClickHouse, MySQL, Presto, and HBase]]></title>
+            <title><![CDATA[Less components, higher performance: Apache Doris instead of ClickHouse, MySQL, Presto, and HBase]]></title>
             <link>https://doris.apache.org/blog/less-components-higher-performance-apache-doris-instead-of-clickhouse-mysql-presto-and-hbase</link>
             <guid>https://doris.apache.org/blog/less-components-higher-performance-apache-doris-instead-of-clickhouse-mysql-presto-and-hbase</guid>
             <pubDate>Wed, 22 Nov 2023 00:00:00 GMT</pubDate>
@@ -54,7 +54,7 @@
             <category>Best Practice</category>
         </item>
         <item>
-            <title><![CDATA[Apache Doris Summit Asia 2023: What Can You Expect From Apache Doris as a Data Warehouse?]]></title>
+            <title><![CDATA[Apache Doris Summit Asia 2023: what can you expect from apache doris as a data warehouse?]]></title>
             <link>https://doris.apache.org/blog/apache-doris-summit-asia-2023-what-can-you-expect-from-apache-doris-as-a-data-warehouse</link>
             <guid>https://doris.apache.org/blog/apache-doris-summit-asia-2023-what-can-you-expect-from-apache-doris-as-a-data-warehouse</guid>
             <pubDate>Fri, 10 Nov 2023 00:00:00 GMT</pubDate>
@@ -63,7 +63,7 @@
             <category>Top News</category>
         </item>
         <item>
-            <title><![CDATA[Data Analysis for Live Streaming: What Happens in Real Time is Analyzed in Real Time]]></title>
+            <title><![CDATA[Data analysis for live streaming: what happens in real time is analyzed in real time]]></title>
             <link>https://doris.apache.org/blog/data-analysis-for-live-streaming-what-happens-in-real-time-is-analyzed-in-real-time</link>
             <guid>https://doris.apache.org/blog/data-analysis-for-live-streaming-what-happens-in-real-time-is-analyzed-in-real-time</guid>
             <pubDate>Mon, 30 Oct 2023 00:00:00 GMT</pubDate>
@@ -83,7 +83,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
             <category>Release Notes</category>
         </item>
         <item>
-            <title><![CDATA[Migrating from ClickHouse to Apache Doris: What Happened?]]></title>
+            <title><![CDATA[Migrating from ClickHouse to Apache Doris: what happened?]]></title>
             <link>https://doris.apache.org/blog/migrating-from-clickhouse-to-apache-doris-what-happened</link>
             <guid>https://doris.apache.org/blog/migrating-from-clickhouse-to-apache-doris-what-happened</guid>
             <pubDate>Wed, 11 Oct 2023 00:00:00 GMT</pubDate>
@@ -92,7 +92,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
             <category>Best Practice</category>
         </item>
         <item>
-            <title><![CDATA[Introduction to Apache Doris: A Next-Generation Real-Time Data Warehouse]]></title>
+            <title><![CDATA[Introduction to Apache Doris: a next-generation real-time data warehouse]]></title>
             <link>https://doris.apache.org/blog/introduction-to-apache-doris-a-next-generation-real-time-data-warehouse</link>
             <guid>https://doris.apache.org/blog/introduction-to-apache-doris-a-next-generation-real-time-data-warehouse</guid>
             <pubDate>Tue, 03 Oct 2023 00:00:00 GMT</pubDate>
@@ -101,7 +101,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
             <category>Tech Sharing</category>
         </item>
         <item>
-            <title><![CDATA[Log Analysis: Elasticsearch VS Apache Doris]]></title>
+            <title><![CDATA[Log analysis: Elasticsearch vs Apache Doris]]></title>
             <link>https://doris.apache.org/blog/log-analysis-elasticsearch-vs-apache-doris</link>
             <guid>https://doris.apache.org/blog/log-analysis-elasticsearch-vs-apache-doris</guid>
             <pubDate>Thu, 28 Sep 2023 00:00:00 GMT</pubDate>
@@ -110,7 +110,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
             <category>Tech Sharing</category>
         </item>
         <item>
-            <title><![CDATA[Log Analysis: How to Digest 15 Billion Logs Per Day and Keep Big Queries Within 1 Second]]></title>
+            <title><![CDATA[Log analysis: how to digest 15 billion logs per day and keep big queries within 1 second]]></title>
             <link>https://doris.apache.org/blog/Log-Analysis-How-to-Digest-15-Billion-Logs-Per-Day-and-Keep-Big-Queries-Within-1-Second</link>
             <guid>https://doris.apache.org/blog/Log-Analysis-How-to-Digest-15-Billion-Logs-Per-Day-and-Keep-Big-Queries-Within-1-Second</guid>
             <pubDate>Sat, 16 Sep 2023 00:00:00 GMT</pubDate>
@@ -207,7 +207,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
             <category>Release Notes</category>
         </item>
         <item>
-            <title><![CDATA[LLM-Powered OLAP: the Tencent Experience with Apache Doris]]></title>
+            <title><![CDATA[LLM-powered OLAP: the Tencent application with Apache Doris]]></title>
             <link>https://doris.apache.org/blog/Tencent-LLM</link>
             <guid>https://doris.apache.org/blog/Tencent-LLM</guid>
             <pubDate>Tue, 29 Aug 2023 00:00:00 GMT</pubDate>
@@ -216,7 +216,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
             <category>Best Practice</category>
         </item>
         <item>
-            <title><![CDATA[Choosing an OLAP Engine for Financial Risk Management: What to Consider?]]></title>
+            <title><![CDATA[Choosing an OLAP engine for financial risk management: what to consider?]]></title>
             <link>https://doris.apache.org/blog/Choosing-an-OLAP-Engine-for-Financial-Risk-Management-What-to-Consider</link>
             <guid>https://doris.apache.org/blog/Choosing-an-OLAP-Engine-for-Financial-Risk-Management-What-to-Consider</guid>
             <pubDate>Thu, 17 Aug 2023 00:00:00 GMT</pubDate>
@@ -225,7 +225,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
             <category>Best Practice</category>
         </item>
         <item>
-            <title><![CDATA[Auto Synchronization of an Entire MySQL Database for Data Analysis]]></title>
+            <title><![CDATA[Auto synchronization of an entire MySQL database for data analysis]]></title>
             <link>https://doris.apache.org/blog/Auto-Synchronization-of-an-Entire-MySQL-Database-for-Data-Analysis</link>
             <guid>https://doris.apache.org/blog/Auto-Synchronization-of-an-Entire-MySQL-Database-for-Data-Analysis</guid>
             <pubDate>Wed, 16 Aug 2023 00:00:00 GMT</pubDate>
@@ -234,7 +234,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
             <category>Tech Sharing</category>
         </item>
         <item>
-            <title><![CDATA[Apache Doris announced the official release of version 2.0.0]]></title>
+            <title><![CDATA[New milestone: Apache Doris 2.0.0 just released]]></title>
             <link>https://doris.apache.org/blog/release-note-2.0.0</link>
             <guid>https://doris.apache.org/blog/release-note-2.0.0</guid>
             <pubDate>Wed, 16 Aug 2023 00:00:00 GMT</pubDate>
@@ -243,7 +243,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
             <category>Release Notes</category>
         </item>
         <item>
-            <title><![CDATA[Database in Fintech: How to Support 10,000 Dashboards Without Causing a Mess]]></title>
+            <title><![CDATA[Database in fintech: how to support 10,000 dashboards without causing a mess]]></title>
             <link>https://doris.apache.org/blog/Database-in-Fintech-How-to-Support-ten-thousand-Dashboards-Without-Causing-a-Mess</link>
             <guid>https://doris.apache.org/blog/Database-in-Fintech-How-to-Support-ten-thousand-Dashboards-Without-Causing-a-Mess</guid>
             <pubDate>Sat, 05 Aug 2023 00:00:00 GMT</pubDate>
@@ -252,7 +252,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
             <category>Best Practice</category>
         </item>
         <item>
-            <title><![CDATA[For Entry-Level Data Engineers: How to Build a Simple but Solid Data Architecture]]></title>
+            <title><![CDATA[For entry-level data engineers: how to build a simple but solid data architecture]]></title>
             <link>https://doris.apache.org/blog/For-Entry-Level-Data-Engineers-How-to-Build-a-Simple-but-Solid-Data-Architecture</link>
             <guid>https://doris.apache.org/blog/For-Entry-Level-Data-Engineers-How-to-Build-a-Simple-but-Solid-Data-Architecture</guid>
             <pubDate>Mon, 31 Jul 2023 00:00:00 GMT</pubDate>
@@ -261,7 +261,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
             <category>Best Practice</category>
         </item>
         <item>
-            <title><![CDATA[Is Your Latest Data Really the Latest? Check the Data Update Mechanism of Your Database]]></title>
+            <title><![CDATA[Is your latest data really the latest? check the data update mechanism of your database]]></title>
             <link>https://doris.apache.org/blog/Is-Your-Latest-Data-Really-the-Latest-Check-the-Data-Update-Mechanism-of-Your-Database</link>
             <guid>https://doris.apache.org/blog/Is-Your-Latest-Data-Really-the-Latest-Check-the-Data-Update-Mechanism-of-Your-Database</guid>
             <pubDate>Mon, 24 Jul 2023 00:00:00 GMT</pubDate>
@@ -279,7 +279,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
             <category>Release Notes</category>
         </item>
         <item>
-            <title><![CDATA[Database Dissection: How Fast Data Queries Are Implemented]]></title>
+            <title><![CDATA[Database dissection: how fast data queries are implemented]]></title>
             <link>https://doris.apache.org/blog/Database-Dissection-How-Fast-Data-Queries-Are-Implemented</link>
             <guid>https://doris.apache.org/blog/Database-Dissection-How-Fast-Data-Queries-Are-Implemented</guid>
             <pubDate>Sun, 16 Jul 2023 00:00:00 GMT</pubDate>
@@ -288,7 +288,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
             <category>Best Practice</category>
         </item>
         <item>
-            <title><![CDATA[Listen to That Poor BI Engineer: We Need Fast Joins]]></title>
+            <title><![CDATA[Listen to that poor BI engineer: we need fast joins]]></title>
             <link>https://doris.apache.org/blog/Listen-to-That-Poor-BI-Engineer-We-Need-Fast-Joins</link>
             <guid>https://doris.apache.org/blog/Listen-to-That-Poor-BI-Engineer-We-Need-Fast-Joins</guid>
             <pubDate>Mon, 10 Jul 2023 00:00:00 GMT</pubDate>
@@ -306,7 +306,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
             <category>Best Practice</category>
         </item>
         <item>
-            <title><![CDATA[Tiered Storage for Hot and Cold Data: What, Why, and How?]]></title>
+            <title><![CDATA[Tiered storage for hot and cold data: what, why, and how?]]></title>
             <link>https://doris.apache.org/blog/Tiered-Storage-for-Hot-and-Cold-Data-What-Why-and-How</link>
             <guid>https://doris.apache.org/blog/Tiered-Storage-for-Hot-and-Cold-Data-What-Why-and-How</guid>
             <pubDate>Fri, 23 Jun 2023 00:00:00 GMT</pubDate>
@@ -324,7 +324,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
             <category>Release Notes</category>
         </item>
         <item>
-            <title><![CDATA[Say Goodbye to OOM Crashes]]></title>
+            <title><![CDATA[Say goodbye to OOM crashes]]></title>
             <link>https://doris.apache.org/blog/Say-Goodbye-to-OOM-Crashes</link>
             <guid>https://doris.apache.org/blog/Say-Goodbye-to-OOM-Crashes</guid>
             <pubDate>Fri, 16 Jun 2023 00:00:00 GMT</pubDate>
@@ -333,7 +333,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
             <category>Tech Sharing</category>
         </item>
         <item>
-            <title><![CDATA[Understanding Data Compaction in 3 Minutes]]></title>
+            <title><![CDATA[Understanding data compaction in 3 minutes]]></title>
             <link>https://doris.apache.org/blog/Understanding-Data-Compaction-in-3-Minutes</link>
             <guid>https://doris.apache.org/blog/Understanding-Data-Compaction-in-3-Minutes</guid>
             <pubDate>Fri, 09 Jun 2023 00:00:00 GMT</pubDate>
@@ -351,7 +351,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
             <category>Release Notes</category>
         </item>
         <item>
-            <title><![CDATA[A/B Testing was a Handful, Until we Found the Replacement for Druid]]></title>
+            <title><![CDATA[A/B Testing was a handful, until we found the replacement for Druid]]></title>
             <link>https://doris.apache.org/blog/AB-Testing-was-a-Handful-Until-we-Found-the-Replacement-for-Druid</link>
             <guid>https://doris.apache.org/blog/AB-Testing-was-a-Handful-Until-we-Found-the-Replacement-for-Druid</guid>
             <pubDate>Thu, 01 Jun 2023 00:00:00 GMT</pubDate>
@@ -360,7 +360,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
             <category>Best Practice</category>
         </item>
         <item>
-            <title><![CDATA[Building A Log Analytics Solution 10 Times More Cost-Effective Than Elasticsearch]]></title>
+            <title><![CDATA[Building a log analytics solution 10 times more cost-effective than Elasticsearch]]></title>
             <link>https://doris.apache.org/blog/Building-A-Log-Analytics-Solution-10-Times-More-Cost-Effective-Than-Elasticsearch</link>
             <guid>https://doris.apache.org/blog/Building-A-Log-Analytics-Solution-10-Times-More-Cost-Effective-Than-Elasticsearch</guid>
             <pubDate>Fri, 26 May 2023 00:00:00 GMT</pubDate>
@@ -369,7 +369,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
             <category>Tech Sharing</category>
         </item>
         <item>
-            <title><![CDATA[Building a Data Warehouse for Traditional Industry]]></title>
+            <title><![CDATA[Building a data warehouse for traditional industry]]></title>
             <link>https://doris.apache.org/blog/Building-a-Data-Warehouse-for-Traditional-Industry</link>
             <guid>https://doris.apache.org/blog/Building-a-Data-Warehouse-for-Traditional-Industry</guid>
             <pubDate>Fri, 12 May 2023 00:00:00 GMT</pubDate>
@@ -378,7 +378,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
             <category>Best Practice</category>
         </item>
         <item>
-            <title><![CDATA[Zipping up the Lambda Architecture for 40% Faster Performance]]></title>
+            <title><![CDATA[Zipping up the lambda architecture for 40% faster performance]]></title>
             <link>https://doris.apache.org/blog/Zipping-up-the-Lambda-Architecture-for-40-Percent-Faster-Performance</link>
             <guid>https://doris.apache.org/blog/Zipping-up-the-Lambda-Architecture-for-40-Percent-Faster-Performance</guid>
             <pubDate>Fri, 05 May 2023 00:00:00 GMT</pubDate>
@@ -387,7 +387,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
             <category>Best Practice</category>
         </item>
         <item>
-            <title><![CDATA[Step-by-step Guide to Building a High-Performing Risk Data Mart]]></title>
+            <title><![CDATA[Step-by-step guide to building a high-performing risk data mart]]></title>
             <link>https://doris.apache.org/blog/Step-by-step-Guide-to-Building-a-High-Performing-Risk-Data-Mart</link>
             <guid>https://doris.apache.org/blog/Step-by-step-Guide-to-Building-a-High-Performing-Risk-Data-Mart</guid>
             <pubDate>Thu, 20 Apr 2023 00:00:00 GMT</pubDate>
@@ -396,7 +396,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
             <category>Best Practice</category>
         </item>
         <item>
-            <title><![CDATA[How We Increased Database Query Concurrency by 20 Times]]></title>
+            <title><![CDATA[How We increased database query concurrency by 20 times]]></title>
             <link>https://doris.apache.org/blog/How-We-Increased-Database-Query-Concurrency-by-20-Times</link>
             <guid>https://doris.apache.org/blog/How-We-Increased-Database-Query-Concurrency-by-20-Times</guid>
             <pubDate>Fri, 14 Apr 2023 00:00:00 GMT</pubDate>
@@ -414,7 +414,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
             <category>Release Notes</category>
         </item>
         <item>
-            <title><![CDATA[Building the Next-Generation Data Lakehouse: 10X Performance]]></title>
+            <title><![CDATA[Building the next-generation data lakehouse: 10X performance]]></title>
             <link>https://doris.apache.org/blog/Building-the-Next-Generation-Data-Lakehouse-10X-Performance</link>
             <guid>https://doris.apache.org/blog/Building-the-Next-Generation-Data-Lakehouse-10X-Performance</guid>
             <pubDate>Tue, 14 Mar 2023 00:00:00 GMT</pubDate>
@@ -423,7 +423,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
             <category>Tech Sharing</category>
         </item>
         <item>
-            <title><![CDATA[Tencent Data Engineer: Why We Went from ClickHouse to Apache Doris?]]></title>
+            <title><![CDATA[Tencent data engineer: why we went from ClickHouse to Apache Doris?]]></title>
             <link>https://doris.apache.org/blog/Tencent-Data-Engineers-Why-We-Went-from-ClickHouse-to-Apache-Doris</link>
             <guid>https://doris.apache.org/blog/Tencent-Data-Engineers-Why-We-Went-from-ClickHouse-to-Apache-Doris</guid>
             <pubDate>Tue, 07 Mar 2023 00:00:00 GMT</pubDate>
@@ -432,7 +432,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
             <category>Best Practice</category>
         </item>
         <item>
-            <title><![CDATA[Best Practice in Duyansoft, Improving Query Speed to Make the Most out of Your Data]]></title>
+            <title><![CDATA[Best practice in Duyansoft, improving query speed to make the most out of your data]]></title>
             <link>https://doris.apache.org/blog/Improving-Query-Speed-to-Make-the-Most-out-of-Your-Data</link>
             <guid>https://doris.apache.org/blog/Improving-Query-Speed-to-Make-the-Most-out-of-Your-Data</guid>
             <pubDate>Mon, 27 Feb 2023 00:00:00 GMT</pubDate>
@@ -452,7 +452,7 @@ If you are sensitive to query latency, or have high concurrency and small query 
             <category>Release Notes</category>
         </item>
         <item>
-            <title><![CDATA[ClickHouse & Kudu to Doris: 10X Concurrency Increased, 70% Latency Down]]></title>
+            <title><![CDATA[ClickHouse & Kudu to Doris: 10X concurrency increased, 70% latency down]]></title>
             <link>https://doris.apache.org/blog/linkedcare</link>
             <guid>https://doris.apache.org/blog/linkedcare</guid>
             <pubDate>Sat, 28 Jan 2023 00:00:00 GMT</pubDate>
@@ -462,7 +462,7 @@ If you are sensitive to query latency, or have high concurrency and small query 
             <category>Best Practice</category>
         </item>
         <item>
-            <title><![CDATA[A Glimpse of the Next-generation Analytical Database]]></title>
+            <title><![CDATA[A glimpse of the next-generation analytical database]]></title>
             <link>https://doris.apache.org/blog/summit</link>
             <guid>https://doris.apache.org/blog/summit</guid>
             <pubDate>Thu, 19 Jan 2023 00:00:00 GMT</pubDate>
@@ -484,7 +484,7 @@ From a functional point of view, the follow-up research and development will foc
             <category>Release Notes</category>
         </item>
         <item>
-            <title><![CDATA[Best Practice: The Efficiency of the Data Warehouse Greatly Improved in LY Digital]]></title>
+            <title><![CDATA[The Efficiency of the data warehouse greatly improved in LY Digital"]]></title>
             <link>https://doris.apache.org/blog/LY</link>
             <guid>https://doris.apache.org/blog/LY</guid>
             <pubDate>Mon, 19 Dec 2022 00:00:00 GMT</pubDate>
@@ -503,7 +503,7 @@ At present, LY Digital's business covers financial services, consumer financial 
             <category>Release Notes</category>
         </item>
         <item>
-            <title><![CDATA[Best Practice in Kwai: Apache Doris on Elasticsearch]]></title>
+            <title><![CDATA[Best practice in Kwai: Apache Doris on Elasticsearch]]></title>
             <link>https://doris.apache.org/blog/BestPractice_Kwai</link>
             <guid>https://doris.apache.org/blog/BestPractice_Kwai</guid>
             <pubDate>Wed, 14 Dec 2022 00:00:00 GMT</pubDate>
@@ -516,7 +516,7 @@ Druid: 660ms, Doris: 440ms and which is reduced by 33%</p><h2 class="anchor anch
             <category>Best Practice</category>
         </item>
         <item>
-            <title><![CDATA[Practice and Optimization of Apache Doris in Xiaomi]]></title>
+            <title><![CDATA[Practice and optimization of Apache Doris in Xiaomi]]></title>
             <link>https://doris.apache.org/blog/xiaomi_vector</link>
             <guid>https://doris.apache.org/blog/xiaomi_vector</guid>
             <pubDate>Thu, 08 Dec 2022 00:00:00 GMT</pubDate>
@@ -538,7 +538,7 @@ Documentation: <a href="https://doris.apache.org/zh-CN/docs/dev/install/source-i
             <category>Release Notes</category>
         </item>
         <item>
-            <title><![CDATA[JD.com's Exploration and Practice with Apache Doris in Realtime OLAP]]></title>
+            <title><![CDATA[JD.com's exploration and practice with Apache Doris in real time OLAP]]></title>
             <link>https://doris.apache.org/blog/JD_OLAP</link>
             <guid>https://doris.apache.org/blog/JD_OLAP</guid>
             <pubDate>Fri, 02 Dec 2022 00:00:00 GMT</pubDate>
@@ -549,7 +549,7 @@ We are also pushing the upgrade of JD search box's OLAP platform to the latest v
             <category>Best Practice</category>
         </item>
         <item>
-            <title><![CDATA[Apache Doris Helped Netease Create a Refined Operation DMP System]]></title>
+            <title><![CDATA[Apache Doris helped Netease create a refined operation DMP system]]></title>
             <link>https://doris.apache.org/blog/Netease</link>
             <guid>https://doris.apache.org/blog/Netease</guid>
             <pubDate>Wed, 30 Nov 2022 00:00:00 GMT</pubDate>
@@ -566,7 +566,7 @@ More precision operation:</li><li>Build a rich user analysis model</li><li>Impro
             <category>Best Practice</category>
         </item>
         <item>
-            <title><![CDATA[The Application of Apache Doris in NIO]]></title>
+            <title><![CDATA[The application of Apache Doris in NIO]]></title>
             <link>https://doris.apache.org/blog/NIO</link>
             <guid>https://doris.apache.org/blog/NIO</guid>
             <pubDate>Mon, 28 Nov 2022 00:00:00 GMT</pubDate>
@@ -575,7 +575,7 @@ More precision operation:</li><li>Build a rich user analysis model</li><li>Impro
             <category>Best Practice</category>
         </item>
         <item>
-            <title><![CDATA[How Does Apache Doris Help AISPEECH Build a Data Warehouse in AI Chatbots Scenario]]></title>
+            <title><![CDATA[How does Apache Doris help AISPEECH build a data warehouse in AI chatbots scenario]]></title>
             <link>https://doris.apache.org/blog/Use-Apache-Doris-with-AI-chatbots</link>
             <guid>https://doris.apache.org/blog/Use-Apache-Doris-with-AI-chatbots</guid>
             <pubDate>Thu, 24 Nov 2022 00:00:00 GMT</pubDate>
@@ -584,7 +584,7 @@ More precision operation:</li><li>Build a rich user analysis model</li><li>Impro
             <category>Best Practice</category>
         </item>
         <item>
-            <title><![CDATA[Apache Doris 1.2 Star-Schema-Benchmark Performance Test Report]]></title>
+            <title><![CDATA[Apache Doris 1.2 star-schema-benchmark performance test report]]></title>
             <link>https://doris.apache.org/blog/ssb</link>
             <guid>https://doris.apache.org/blog/ssb</guid>
             <pubDate>Tue, 22 Nov 2022 00:00:00 GMT</pubDate>
@@ -593,7 +593,7 @@ More precision operation:</li><li>Build a rich user analysis model</li><li>Impro
             <category>Tech Sharing</category>
         </item>
         <item>
-            <title><![CDATA[Apache Doris 1.2 TPC-H Performance Test Report]]></title>
+            <title><![CDATA[Apache Doris 1.2 TPC-H performance test report]]></title>
             <link>https://doris.apache.org/blog/tpch</link>
             <guid>https://doris.apache.org/blog/tpch</guid>
             <pubDate>Tue, 22 Nov 2022 00:00:00 GMT</pubDate>
@@ -640,7 +640,7 @@ More precision operation:</li><li>Build a rich user analysis model</li><li>Impro
             <category>Release Notes</category>
         </item>
         <item>
-            <title><![CDATA[Doris Stream Load Principle Analysis]]></title>
+            <title><![CDATA[Doris stream load principle analysis]]></title>
             <link>https://doris.apache.org/blog/principle-of-Doris-Stream-Load</link>
             <guid>https://doris.apache.org/blog/principle-of-Doris-Stream-Load</guid>
             <pubDate>Thu, 08 Sep 2022 00:00:00 GMT</pubDate>
@@ -668,7 +668,7 @@ This article mainly introduces the principle of Doris SQL parsing.</p><p>It focu
             <category>Tech Sharing</category>
         </item>
         <item>
-            <title><![CDATA[Best Practice of Apache Doris in JD]]></title>
+            <title><![CDATA[Best practice of Apache Doris in JD]]></title>
             <link>https://doris.apache.org/blog/jd</link>
             <guid>https://doris.apache.org/blog/jd</guid>
             <pubDate>Wed, 20 Jul 2022 00:00:00 GMT</pubDate>
@@ -677,7 +677,7 @@ This article mainly introduces the principle of Doris SQL parsing.</p><p>It focu
             <category>Best Practice</category>
         </item>
         <item>
-            <title><![CDATA[Best Practice of Apache Doris in Meituan]]></title>
+            <title><![CDATA[Best practice of Apache Doris in Meituan]]></title>
             <link>https://doris.apache.org/blog/meituan</link>
             <guid>https://doris.apache.org/blog/meituan</guid>
             <pubDate>Wed, 20 Jul 2022 00:00:00 GMT</pubDate>
@@ -686,7 +686,7 @@ This article mainly introduces the principle of Doris SQL parsing.</p><p>It focu
             <category>Best Practice</category>
         </item>
         <item>
-            <title><![CDATA[Best Practice of Apache Doris in Xiaomi Group]]></title>
+            <title><![CDATA[Best practice of Apache Doris in Xiaomi Group]]></title>
             <link>https://doris.apache.org/blog/xiaomi</link>
             <guid>https://doris.apache.org/blog/xiaomi</guid>
             <pubDate>Wed, 20 Jul 2022 00:00:00 GMT</pubDate>
@@ -710,7 +710,7 @@ At the same time, using the String type as a partitioning or bucketing column of
             <category>Release Notes</category>
         </item>
         <item>
-            <title><![CDATA[Announcing Open Source Realtime Analytical database Apache Doris as a Top-Level Project]]></title>
+            <title><![CDATA[Announcing open source realtime analytical database Apache Doris as a top-level project]]></title>
             <link>https://doris.apache.org/blog/Annoucing</link>
             <guid>https://doris.apache.org/blog/Annoucing</guid>
             <pubDate>Thu, 16 Jun 2022 00:00:00 GMT</pubDate>
@@ -719,7 +719,7 @@ At the same time, using the String type as a partitioning or bucketing column of
             <category>Top News</category>
         </item>
         <item>
-            <title><![CDATA[Apache Doris(Incubating) announced 1.0.0 Release]]></title>
+            <title><![CDATA[Apache Doris(Incubating) announced 1.0.0 release]]></title>
             <link>https://doris.apache.org/blog/release-note-1.0.0</link>
             <guid>https://doris.apache.org/blog/release-note-1.0.0</guid>
             <pubDate>Mon, 18 Apr 2022 00:00:00 GMT</pubDate>
@@ -728,7 +728,7 @@ At the same time, using the String type as a partitioning or bucketing column of
             <category>Release Notes</category>
         </item>
         <item>
-            <title><![CDATA[Apache Doris(Incubating) annoucned 0.15.0 Release]]></title>
+            <title><![CDATA[Apache Doris(Incubating) annoucned 0.15.0 release]]></title>
             <link>https://doris.apache.org/blog/release-note-0.15.0</link>
             <guid>https://doris.apache.org/blog/release-note-0.15.0</guid>
             <pubDate>Mon, 29 Nov 2021 00:00:00 GMT</pubDate>

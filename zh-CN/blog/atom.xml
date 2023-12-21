@@ -44,7 +44,7 @@
         <category label="Best Practice" term="Best Practice"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[How Big Data Is Saving Lives in Real Time: IoV Data Analytics Helps Prevent Accidents]]></title>
+        <title type="html"><![CDATA[How big data is saving lives in real time: IoV data analytics helps prevent accidents]]></title>
         <id>https://doris.apache.org/zh-CN/blog/how-big-data-is-saving-lives-in-real-time-iov-data-analytics-helps-prevent-accidents</id>
         <link href="https://doris.apache.org/zh-CN/blog/how-big-data-is-saving-lives-in-real-time-iov-data-analytics-helps-prevent-accidents"/>
         <updated>2023-11-29T00:00:00.000Z</updated>
@@ -56,19 +56,19 @@
         <category label="Best Practice" term="Best Practice"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Less Components, Higher Performance: Apache Doris Instead of ClickHouse, MySQL, Presto, and HBase]]></title>
+        <title type="html"><![CDATA[Less components, higher performance: Apache Doris instead of ClickHouse, MySQL, Presto, and HBase]]></title>
         <id>https://doris.apache.org/zh-CN/blog/less-components-higher-performance-apache-doris-instead-of-clickhouse-mysql-presto-and-hbase</id>
         <link href="https://doris.apache.org/zh-CN/blog/less-components-higher-performance-apache-doris-instead-of-clickhouse-mysql-presto-and-hbase"/>
         <updated>2023-11-22T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[<!--]]></summary>
         <content type="html"><![CDATA[<p>This post is about building a unified OLAP platform. An insurance company tries to build a data warehouse that can undertake all their customer-facing, analyst-facing, and management-facing data analysis workloads. The main tasks include: </p><ul><li><strong>Self-service insurance contract query</strong>: This is for insurance customers to check their contract details by their contract ID. It should also support filters such as coverage period, insurance types, and claim amount. </li><li><strong>Multi-dimensional analysis</strong>: Analysts develop their reports based on different data dimensions as they need, so they can extract insights to facilitate product innovation and their anti-fraud efforts. </li><li><strong>Dashboarding</strong>: This is to create visual overview of the insurance sales trends and the horizontal and vertical comparison of different metrics.</li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="component-heavy-data-architecture">Component-Heavy Data Architecture<a href="#component-heavy-data-architecture" class="hash-link" aria-label="Component-Heavy Data Architecture的直接链接" title="Component-Heavy Data Architecture的直接链接">​</a></h2><p>The user started with Lambda architecture, spliting their data pipeline into a batch processing link and a stream processing link. For real-time data streaming, they apply Flink CDC; for batch import, they incorporate Sqoop, Python, and DataX to build their own data integration tool named Hisen.  </p><p><img loading="lazy" alt="multi-component-data-warehouse-mysql-clickhouse-hbase-hive-presto" src="https://cdnd.selectdb.com/zh-CN/assets/images/multi-component-data-warehouse-mysql-clickhouse-hbase-hive-presto-6e3dbac016295bce3108943b4bddcf4c.png" width="1280" height="640" class="img_ev3q"></p><p>Then, the real-time and offline data meets in the data warehousing layer, which is made up of five components.</p><p><strong>ClickHouse</strong></p><p>The data warehouse is of flat table design and ClickHouse is superb in flat table reading. But as business evolves, things become challenging in two ways:</p><ul><li>To support cross-table joins and point queries, the user requires the star schema, but that's difficult to implement in ClickHouse.</li><li>Changes in insurance contracts need to be updated in the data warehouse in real time. In ClickHouse, that is done by recreating a flat table to overwrite the old one, which is not fast enough.</li></ul><p><strong>MySQL</strong></p><p>After calculation, data metrics are stored in MySQL, but as the data size grows, MySQL starts to struggle, with emerging problems like prolonged execution time and errors thrown.</p><p><strong>Apache</strong> <strong>Hive</strong> <strong>+ Presto</strong></p><p>Hive is the main executor in the batch processing link. It can transform, aggregate, query offline data. Presto is a complement to Hive for interactive analysis.</p><p><strong>Apache HBase</strong></p><p>HBase undertakes primary key queries. It reads customer status from MySQL and Hive, including customer credits, coverage period, and sum insured. However, since HBase does not support secondary indexes, it has limited capability in reading non-primary key columns. Plus, as a NoSQL database, HBase does not support SQL statements.</p><p>The components have to work in conjunction to serve all needs, making the data warehouse too much to take care of. It is not easy to get started with because engineers must be trained on all these components. Also, the complexity of architecture adds to the risks of latency. </p><p>So the user tried to look for a tool that ticks more boxes in fulfilling their requirements. The first thing they need is real-time capabilities, including real-time writing, real-time updating, and real-time response to data queries. Secondly, they need more flexibility in data analysis to support customer-facing self-service queries, like multi-dimensional analysis, join queries of large tables, primary key indexes, roll-ups, and drill-downs. Then, for batch processing, they also want high throughput in data writing.</p><p>They eventually made up their mind with <a href="https://doris.apache.org/" target="_blank" rel="noopener noreferrer">Apache Doris</a>. </p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="replacing-four-components-with-apache-doris">Replacing Four Components with Apache Doris<a href="#replacing-four-components-with-apache-doris" class="hash-link" aria-label="Replacing Four Components with Apache Doris的直接链接" title="Replacing Four Components with Apache Doris的直接链接">​</a></h2><p> Apache Doris is capable of both real-time and offline data analysis, and it supports both high-throughput interactive analysis and high-concurrency point queries. That's why it can replace ClickHouse, MySQL, Presto, and Apache HBase and work as the unified query gateway for the entire data system. </p><p><img loading="lazy" alt="unified-data-warehouse-kafka-apache-doris-hive" src="https://cdnd.selectdb.com/zh-CN/assets/images/unified-data-warehouse-kafka-apache-doris-hive-0c1accc90b4280a26b81be17b31e5a63.png" width="1280" height="686" class="img_ev3q"></p><p>The improved data pipeline is a much cleaner Lambda architecture. </p><p>Apache Doris provides a wide range of data ingestion methods. It's quick in data writing. On top of this, it also implements Merge-on-Write to improve its performance on concurrent point queries. </p><p><strong>Reduced Cost</strong></p><p>The new architecture has reduced the user's cost in human efforts. For one thing, the much simpler data architecture leads to much easier maintenance; for another, developers no longer need to join the real-time and offline data in the data serving API.</p><p>The user can also save money with Doris because it supports tiered storage. It allows the user to put their huge amount of rarely accessed historical data in object storage, which is much cheaper to hoard data.</p><p><strong>Higher Efficiency</strong></p><p>Apache Doris can reach a QPS of 10,000s and respond to billions of point queries within milliseconds, so the customer-facing queries are easy for it to handle. Tiered storage that separates hot data from cold data also increases their query efficiency.</p><p><strong>Service Availability</strong></p><p>As a unified data warehouse for storage, computation, and data services, Apache Doris allows for easy disaster recovery. With less components, they don't have to worry about data loss or duplication. </p><p>An important guarantee of service availability for the user is the Cross-Cluster Replication (CCR) capability of Apache Doris. It can synchronize data from cluster to cluster within minutes or even seconds, and it implements two mechanisms to ensure data reliability:</p><ul><li><strong>Binlog</strong>: This mechanism can automatically log the data changes and generate a LogID for each data modification operation. The incremental LogIDs make sure that data changes are traceable and orderly.</li><li><strong>Data persistence</strong>: In the case of system meltdown or emergencies, data will be put into disks.</li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="a-deeper-look-into-apache-doris">A Deeper Look into Apache Doris<a href="#a-deeper-look-into-apache-doris" class="hash-link" aria-label="A Deeper Look into Apache Doris的直接链接" title="A Deeper Look into Apache Doris的直接链接">​</a></h2><p>Apache Doris can replace the ClickHouse, MySQL, Presto, and HBase because it has a comprehensive collection of capabilities all along the data processing pipeline. In data ingestion, it enables low-latency real-time writing based on its support for Flink CDC and Merge-on-Write. It guarantees Exactly-Once writing by its Label mechanism and transactional loading. In data queries, it supports both Star Schema and flat table aggregation, so it can provide high performance in bother multi-table joins and large single table queries. It also provides various ways to speed up different queries, like <a href="https://doris.apache.org/docs/dev/data-table/index/inverted-index/" target="_blank" rel="noopener noreferrer">inverted index</a> for full-text search and range queries, short-circuit plan and prepared statements for point queries.</p>]]></content>
         <author>
-            <name>Big Data Platform R&amp;D Team of CIGNA&amp;CMB</name>
+            <name>CIGNA &amp; CMB</name>
         </author>
         <category label="Best Practice" term="Best Practice"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Apache Doris Summit Asia 2023: What Can You Expect From Apache Doris as a Data Warehouse?]]></title>
+        <title type="html"><![CDATA[Apache Doris Summit Asia 2023: what can you expect from apache doris as a data warehouse?]]></title>
         <id>https://doris.apache.org/zh-CN/blog/apache-doris-summit-asia-2023-what-can-you-expect-from-apache-doris-as-a-data-warehouse</id>
         <link href="https://doris.apache.org/zh-CN/blog/apache-doris-summit-asia-2023-what-can-you-expect-from-apache-doris-as-a-data-warehouse"/>
         <updated>2023-11-10T00:00:00.000Z</updated>
@@ -80,7 +80,7 @@
         <category label="Top News" term="Top News"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Data Analysis for Live Streaming: What Happens in Real Time is Analyzed in Real Time]]></title>
+        <title type="html"><![CDATA[Data analysis for live streaming: what happens in real time is analyzed in real time]]></title>
         <id>https://doris.apache.org/zh-CN/blog/data-analysis-for-live-streaming-what-happens-in-real-time-is-analyzed-in-real-time</id>
         <link href="https://doris.apache.org/zh-CN/blog/data-analysis-for-live-streaming-what-happens-in-real-time-is-analyzed-in-real-time"/>
         <updated>2023-10-30T00:00:00.000Z</updated>
@@ -106,7 +106,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
         <category label="Release Notes" term="Release Notes"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Migrating from ClickHouse to Apache Doris: What Happened?]]></title>
+        <title type="html"><![CDATA[Migrating from ClickHouse to Apache Doris: what happened?]]></title>
         <id>https://doris.apache.org/zh-CN/blog/migrating-from-clickhouse-to-apache-doris-what-happened</id>
         <link href="https://doris.apache.org/zh-CN/blog/migrating-from-clickhouse-to-apache-doris-what-happened"/>
         <updated>2023-10-11T00:00:00.000Z</updated>
@@ -118,7 +118,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
         <category label="Best Practice" term="Best Practice"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Introduction to Apache Doris: A Next-Generation Real-Time Data Warehouse]]></title>
+        <title type="html"><![CDATA[Introduction to Apache Doris: a next-generation real-time data warehouse]]></title>
         <id>https://doris.apache.org/zh-CN/blog/introduction-to-apache-doris-a-next-generation-real-time-data-warehouse</id>
         <link href="https://doris.apache.org/zh-CN/blog/introduction-to-apache-doris-a-next-generation-real-time-data-warehouse"/>
         <updated>2023-10-03T00:00:00.000Z</updated>
@@ -130,7 +130,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
         <category label="Tech Sharing" term="Tech Sharing"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Log Analysis: Elasticsearch VS Apache Doris]]></title>
+        <title type="html"><![CDATA[Log analysis: Elasticsearch vs Apache Doris]]></title>
         <id>https://doris.apache.org/zh-CN/blog/log-analysis-elasticsearch-vs-apache-doris</id>
         <link href="https://doris.apache.org/zh-CN/blog/log-analysis-elasticsearch-vs-apache-doris"/>
         <updated>2023-09-28T00:00:00.000Z</updated>
@@ -142,7 +142,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
         <category label="Tech Sharing" term="Tech Sharing"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Log Analysis: How to Digest 15 Billion Logs Per Day and Keep Big Queries Within 1 Second]]></title>
+        <title type="html"><![CDATA[Log analysis: how to digest 15 billion logs per day and keep big queries within 1 second]]></title>
         <id>https://doris.apache.org/zh-CN/blog/Log-Analysis-How-to-Digest-15-Billion-Logs-Per-Day-and-Keep-Big-Queries-Within-1-Second</id>
         <link href="https://doris.apache.org/zh-CN/blog/Log-Analysis-How-to-Digest-15-Billion-Logs-Per-Day-and-Keep-Big-Queries-Within-1-Second"/>
         <updated>2023-09-16T00:00:00.000Z</updated>
@@ -248,7 +248,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
         <category label="Release Notes" term="Release Notes"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[LLM-Powered OLAP: the Tencent Experience with Apache Doris]]></title>
+        <title type="html"><![CDATA[LLM-powered OLAP: the Tencent application with Apache Doris]]></title>
         <id>https://doris.apache.org/zh-CN/blog/Tencent-LLM</id>
         <link href="https://doris.apache.org/zh-CN/blog/Tencent-LLM"/>
         <updated>2023-08-29T00:00:00.000Z</updated>
@@ -260,7 +260,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
         <category label="Best Practice" term="Best Practice"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Choosing an OLAP Engine for Financial Risk Management: What to Consider?]]></title>
+        <title type="html"><![CDATA[Choosing an OLAP engine for financial risk management: what to consider?]]></title>
         <id>https://doris.apache.org/zh-CN/blog/Choosing-an-OLAP-Engine-for-Financial-Risk-Management-What-to-Consider</id>
         <link href="https://doris.apache.org/zh-CN/blog/Choosing-an-OLAP-Engine-for-Financial-Risk-Management-What-to-Consider"/>
         <updated>2023-08-17T00:00:00.000Z</updated>
@@ -272,7 +272,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
         <category label="Best Practice" term="Best Practice"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Auto Synchronization of an Entire MySQL Database for Data Analysis]]></title>
+        <title type="html"><![CDATA[Auto synchronization of an entire MySQL database for data analysis]]></title>
         <id>https://doris.apache.org/zh-CN/blog/Auto-Synchronization-of-an-Entire-MySQL-Database-for-Data-Analysis</id>
         <link href="https://doris.apache.org/zh-CN/blog/Auto-Synchronization-of-an-Entire-MySQL-Database-for-Data-Analysis"/>
         <updated>2023-08-16T00:00:00.000Z</updated>
@@ -284,7 +284,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
         <category label="Tech Sharing" term="Tech Sharing"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Apache Doris announced the official release of version 2.0.0]]></title>
+        <title type="html"><![CDATA[New milestone: Apache Doris 2.0.0 just released]]></title>
         <id>https://doris.apache.org/zh-CN/blog/release-note-2.0.0</id>
         <link href="https://doris.apache.org/zh-CN/blog/release-note-2.0.0"/>
         <updated>2023-08-16T00:00:00.000Z</updated>
@@ -296,7 +296,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
         <category label="Release Notes" term="Release Notes"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Database in Fintech: How to Support 10,000 Dashboards Without Causing a Mess]]></title>
+        <title type="html"><![CDATA[Database in fintech: how to support 10,000 dashboards without causing a mess]]></title>
         <id>https://doris.apache.org/zh-CN/blog/Database-in-Fintech-How-to-Support-ten-thousand-Dashboards-Without-Causing-a-Mess</id>
         <link href="https://doris.apache.org/zh-CN/blog/Database-in-Fintech-How-to-Support-ten-thousand-Dashboards-Without-Causing-a-Mess"/>
         <updated>2023-08-05T00:00:00.000Z</updated>
@@ -308,7 +308,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
         <category label="Best Practice" term="Best Practice"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[For Entry-Level Data Engineers: How to Build a Simple but Solid Data Architecture]]></title>
+        <title type="html"><![CDATA[For entry-level data engineers: how to build a simple but solid data architecture]]></title>
         <id>https://doris.apache.org/zh-CN/blog/For-Entry-Level-Data-Engineers-How-to-Build-a-Simple-but-Solid-Data-Architecture</id>
         <link href="https://doris.apache.org/zh-CN/blog/For-Entry-Level-Data-Engineers-How-to-Build-a-Simple-but-Solid-Data-Architecture"/>
         <updated>2023-07-31T00:00:00.000Z</updated>
@@ -320,7 +320,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
         <category label="Best Practice" term="Best Practice"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Is Your Latest Data Really the Latest? Check the Data Update Mechanism of Your Database]]></title>
+        <title type="html"><![CDATA[Is your latest data really the latest? check the data update mechanism of your database]]></title>
         <id>https://doris.apache.org/zh-CN/blog/Is-Your-Latest-Data-Really-the-Latest-Check-the-Data-Update-Mechanism-of-Your-Database</id>
         <link href="https://doris.apache.org/zh-CN/blog/Is-Your-Latest-Data-Really-the-Latest-Check-the-Data-Update-Mechanism-of-Your-Database"/>
         <updated>2023-07-24T00:00:00.000Z</updated>
@@ -344,7 +344,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
         <category label="Release Notes" term="Release Notes"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Database Dissection: How Fast Data Queries Are Implemented]]></title>
+        <title type="html"><![CDATA[Database dissection: how fast data queries are implemented]]></title>
         <id>https://doris.apache.org/zh-CN/blog/Database-Dissection-How-Fast-Data-Queries-Are-Implemented</id>
         <link href="https://doris.apache.org/zh-CN/blog/Database-Dissection-How-Fast-Data-Queries-Are-Implemented"/>
         <updated>2023-07-16T00:00:00.000Z</updated>
@@ -356,7 +356,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
         <category label="Best Practice" term="Best Practice"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Listen to That Poor BI Engineer: We Need Fast Joins]]></title>
+        <title type="html"><![CDATA[Listen to that poor BI engineer: we need fast joins]]></title>
         <id>https://doris.apache.org/zh-CN/blog/Listen-to-That-Poor-BI-Engineer-We-Need-Fast-Joins</id>
         <link href="https://doris.apache.org/zh-CN/blog/Listen-to-That-Poor-BI-Engineer-We-Need-Fast-Joins"/>
         <updated>2023-07-10T00:00:00.000Z</updated>
@@ -380,7 +380,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
         <category label="Best Practice" term="Best Practice"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Tiered Storage for Hot and Cold Data: What, Why, and How?]]></title>
+        <title type="html"><![CDATA[Tiered storage for hot and cold data: what, why, and how?]]></title>
         <id>https://doris.apache.org/zh-CN/blog/Tiered-Storage-for-Hot-and-Cold-Data-What-Why-and-How</id>
         <link href="https://doris.apache.org/zh-CN/blog/Tiered-Storage-for-Hot-and-Cold-Data-What-Why-and-How"/>
         <updated>2023-06-23T00:00:00.000Z</updated>
@@ -404,7 +404,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
         <category label="Release Notes" term="Release Notes"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Say Goodbye to OOM Crashes]]></title>
+        <title type="html"><![CDATA[Say goodbye to OOM crashes]]></title>
         <id>https://doris.apache.org/zh-CN/blog/Say-Goodbye-to-OOM-Crashes</id>
         <link href="https://doris.apache.org/zh-CN/blog/Say-Goodbye-to-OOM-Crashes"/>
         <updated>2023-06-16T00:00:00.000Z</updated>
@@ -416,7 +416,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
         <category label="Tech Sharing" term="Tech Sharing"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Understanding Data Compaction in 3 Minutes]]></title>
+        <title type="html"><![CDATA[Understanding data compaction in 3 minutes]]></title>
         <id>https://doris.apache.org/zh-CN/blog/Understanding-Data-Compaction-in-3-Minutes</id>
         <link href="https://doris.apache.org/zh-CN/blog/Understanding-Data-Compaction-in-3-Minutes"/>
         <updated>2023-06-09T00:00:00.000Z</updated>
@@ -440,7 +440,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
         <category label="Release Notes" term="Release Notes"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[A/B Testing was a Handful, Until we Found the Replacement for Druid]]></title>
+        <title type="html"><![CDATA[A/B Testing was a handful, until we found the replacement for Druid]]></title>
         <id>https://doris.apache.org/zh-CN/blog/AB-Testing-was-a-Handful-Until-we-Found-the-Replacement-for-Druid</id>
         <link href="https://doris.apache.org/zh-CN/blog/AB-Testing-was-a-Handful-Until-we-Found-the-Replacement-for-Druid"/>
         <updated>2023-06-01T00:00:00.000Z</updated>
@@ -452,7 +452,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
         <category label="Best Practice" term="Best Practice"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Building A Log Analytics Solution 10 Times More Cost-Effective Than Elasticsearch]]></title>
+        <title type="html"><![CDATA[Building a log analytics solution 10 times more cost-effective than Elasticsearch]]></title>
         <id>https://doris.apache.org/zh-CN/blog/Building-A-Log-Analytics-Solution-10-Times-More-Cost-Effective-Than-Elasticsearch</id>
         <link href="https://doris.apache.org/zh-CN/blog/Building-A-Log-Analytics-Solution-10-Times-More-Cost-Effective-Than-Elasticsearch"/>
         <updated>2023-05-26T00:00:00.000Z</updated>
@@ -464,7 +464,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
         <category label="Tech Sharing" term="Tech Sharing"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Building a Data Warehouse for Traditional Industry]]></title>
+        <title type="html"><![CDATA[Building a data warehouse for traditional industry]]></title>
         <id>https://doris.apache.org/zh-CN/blog/Building-a-Data-Warehouse-for-Traditional-Industry</id>
         <link href="https://doris.apache.org/zh-CN/blog/Building-a-Data-Warehouse-for-Traditional-Industry"/>
         <updated>2023-05-12T00:00:00.000Z</updated>
@@ -476,7 +476,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
         <category label="Best Practice" term="Best Practice"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Zipping up the Lambda Architecture for 40% Faster Performance]]></title>
+        <title type="html"><![CDATA[Zipping up the lambda architecture for 40% faster performance]]></title>
         <id>https://doris.apache.org/zh-CN/blog/Zipping-up-the-Lambda-Architecture-for-40-Percent-Faster-Performance</id>
         <link href="https://doris.apache.org/zh-CN/blog/Zipping-up-the-Lambda-Architecture-for-40-Percent-Faster-Performance"/>
         <updated>2023-05-05T00:00:00.000Z</updated>
@@ -488,7 +488,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
         <category label="Best Practice" term="Best Practice"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Step-by-step Guide to Building a High-Performing Risk Data Mart]]></title>
+        <title type="html"><![CDATA[Step-by-step guide to building a high-performing risk data mart]]></title>
         <id>https://doris.apache.org/zh-CN/blog/Step-by-step-Guide-to-Building-a-High-Performing-Risk-Data-Mart</id>
         <link href="https://doris.apache.org/zh-CN/blog/Step-by-step-Guide-to-Building-a-High-Performing-Risk-Data-Mart"/>
         <updated>2023-04-20T00:00:00.000Z</updated>
@@ -500,7 +500,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
         <category label="Best Practice" term="Best Practice"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[How We Increased Database Query Concurrency by 20 Times]]></title>
+        <title type="html"><![CDATA[How We increased database query concurrency by 20 times]]></title>
         <id>https://doris.apache.org/zh-CN/blog/How-We-Increased-Database-Query-Concurrency-by-20-Times</id>
         <link href="https://doris.apache.org/zh-CN/blog/How-We-Increased-Database-Query-Concurrency-by-20-Times"/>
         <updated>2023-04-14T00:00:00.000Z</updated>
@@ -524,7 +524,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
         <category label="Release Notes" term="Release Notes"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Building the Next-Generation Data Lakehouse: 10X Performance]]></title>
+        <title type="html"><![CDATA[Building the next-generation data lakehouse: 10X performance]]></title>
         <id>https://doris.apache.org/zh-CN/blog/Building-the-Next-Generation-Data-Lakehouse-10X-Performance</id>
         <link href="https://doris.apache.org/zh-CN/blog/Building-the-Next-Generation-Data-Lakehouse-10X-Performance"/>
         <updated>2023-03-14T00:00:00.000Z</updated>
@@ -536,7 +536,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
         <category label="Tech Sharing" term="Tech Sharing"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Tencent Data Engineer: Why We Went from ClickHouse to Apache Doris?]]></title>
+        <title type="html"><![CDATA[Tencent data engineer: why we went from ClickHouse to Apache Doris?]]></title>
         <id>https://doris.apache.org/zh-CN/blog/Tencent-Data-Engineers-Why-We-Went-from-ClickHouse-to-Apache-Doris</id>
         <link href="https://doris.apache.org/zh-CN/blog/Tencent-Data-Engineers-Why-We-Went-from-ClickHouse-to-Apache-Doris"/>
         <updated>2023-03-07T00:00:00.000Z</updated>
@@ -548,7 +548,7 @@ Improve performance of MATCH</li></ul><h3 class="anchor anchorWithStickyNavbar_L
         <category label="Best Practice" term="Best Practice"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Best Practice in Duyansoft, Improving Query Speed to Make the Most out of Your Data]]></title>
+        <title type="html"><![CDATA[Best practice in Duyansoft, improving query speed to make the most out of your data]]></title>
         <id>https://doris.apache.org/zh-CN/blog/Improving-Query-Speed-to-Make-the-Most-out-of-Your-Data</id>
         <link href="https://doris.apache.org/zh-CN/blog/Improving-Query-Speed-to-Make-the-Most-out-of-Your-Data"/>
         <updated>2023-02-27T00:00:00.000Z</updated>
@@ -574,7 +574,7 @@ If you are sensitive to query latency, or have high concurrency and small query 
         <category label="Release Notes" term="Release Notes"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[ClickHouse & Kudu to Doris: 10X Concurrency Increased, 70% Latency Down]]></title>
+        <title type="html"><![CDATA[ClickHouse & Kudu to Doris: 10X concurrency increased, 70% latency down]]></title>
         <id>https://doris.apache.org/zh-CN/blog/linkedcare</id>
         <link href="https://doris.apache.org/zh-CN/blog/linkedcare"/>
         <updated>2023-01-28T00:00:00.000Z</updated>
@@ -587,7 +587,7 @@ If you are sensitive to query latency, or have high concurrency and small query 
         <category label="Best Practice" term="Best Practice"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[A Glimpse of the Next-generation Analytical Database]]></title>
+        <title type="html"><![CDATA[A glimpse of the next-generation analytical database]]></title>
         <id>https://doris.apache.org/zh-CN/blog/summit</id>
         <link href="https://doris.apache.org/zh-CN/blog/summit"/>
         <updated>2023-01-19T00:00:00.000Z</updated>
@@ -615,7 +615,7 @@ From a functional point of view, the follow-up research and development will foc
         <category label="Release Notes" term="Release Notes"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Best Practice: The Efficiency of the Data Warehouse Greatly Improved in LY Digital]]></title>
+        <title type="html"><![CDATA[The Efficiency of the data warehouse greatly improved in LY Digital"]]></title>
         <id>https://doris.apache.org/zh-CN/blog/LY</id>
         <link href="https://doris.apache.org/zh-CN/blog/LY"/>
         <updated>2022-12-19T00:00:00.000Z</updated>
@@ -640,7 +640,7 @@ At present, LY Digital's business covers financial services, consumer financial 
         <category label="Release Notes" term="Release Notes"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Best Practice in Kwai: Apache Doris on Elasticsearch]]></title>
+        <title type="html"><![CDATA[Best practice in Kwai: Apache Doris on Elasticsearch]]></title>
         <id>https://doris.apache.org/zh-CN/blog/BestPractice_Kwai</id>
         <link href="https://doris.apache.org/zh-CN/blog/BestPractice_Kwai"/>
         <updated>2022-12-14T00:00:00.000Z</updated>
@@ -656,7 +656,7 @@ Druid: 660ms, Doris: 440ms and which is reduced by 33%</p><h2 class="anchor anch
         <category label="Best Practice" term="Best Practice"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Practice and Optimization of Apache Doris in Xiaomi]]></title>
+        <title type="html"><![CDATA[Practice and optimization of Apache Doris in Xiaomi]]></title>
         <id>https://doris.apache.org/zh-CN/blog/xiaomi_vector</id>
         <link href="https://doris.apache.org/zh-CN/blog/xiaomi_vector"/>
         <updated>2022-12-08T00:00:00.000Z</updated>
@@ -684,7 +684,7 @@ Documentation: <a href="https://doris.apache.org/zh-CN/docs/dev/install/source-i
         <category label="Release Notes" term="Release Notes"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[JD.com's Exploration and Practice with Apache Doris in Realtime OLAP]]></title>
+        <title type="html"><![CDATA[JD.com's exploration and practice with Apache Doris in real time OLAP]]></title>
         <id>https://doris.apache.org/zh-CN/blog/JD_OLAP</id>
         <link href="https://doris.apache.org/zh-CN/blog/JD_OLAP"/>
         <updated>2022-12-02T00:00:00.000Z</updated>
@@ -698,7 +698,7 @@ We are also pushing the upgrade of JD search box's OLAP platform to the latest v
         <category label="Best Practice" term="Best Practice"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Apache Doris Helped Netease Create a Refined Operation DMP System]]></title>
+        <title type="html"><![CDATA[Apache Doris helped Netease create a refined operation DMP system]]></title>
         <id>https://doris.apache.org/zh-CN/blog/Netease</id>
         <link href="https://doris.apache.org/zh-CN/blog/Netease"/>
         <updated>2022-11-30T00:00:00.000Z</updated>
@@ -718,7 +718,7 @@ More precision operation:</li><li>Build a rich user analysis model</li><li>Impro
         <category label="Best Practice" term="Best Practice"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[The Application of Apache Doris in NIO]]></title>
+        <title type="html"><![CDATA[The application of Apache Doris in NIO]]></title>
         <id>https://doris.apache.org/zh-CN/blog/NIO</id>
         <link href="https://doris.apache.org/zh-CN/blog/NIO"/>
         <updated>2022-11-28T00:00:00.000Z</updated>
@@ -730,7 +730,7 @@ More precision operation:</li><li>Build a rich user analysis model</li><li>Impro
         <category label="Best Practice" term="Best Practice"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[How Does Apache Doris Help AISPEECH Build a Data Warehouse in AI Chatbots Scenario]]></title>
+        <title type="html"><![CDATA[How does Apache Doris help AISPEECH build a data warehouse in AI chatbots scenario]]></title>
         <id>https://doris.apache.org/zh-CN/blog/Use-Apache-Doris-with-AI-chatbots</id>
         <link href="https://doris.apache.org/zh-CN/blog/Use-Apache-Doris-with-AI-chatbots"/>
         <updated>2022-11-24T00:00:00.000Z</updated>
@@ -742,7 +742,7 @@ More precision operation:</li><li>Build a rich user analysis model</li><li>Impro
         <category label="Best Practice" term="Best Practice"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Apache Doris 1.2 Star-Schema-Benchmark Performance Test Report]]></title>
+        <title type="html"><![CDATA[Apache Doris 1.2 star-schema-benchmark performance test report]]></title>
         <id>https://doris.apache.org/zh-CN/blog/ssb</id>
         <link href="https://doris.apache.org/zh-CN/blog/ssb"/>
         <updated>2022-11-22T00:00:00.000Z</updated>
@@ -754,7 +754,7 @@ More precision operation:</li><li>Build a rich user analysis model</li><li>Impro
         <category label="Tech Sharing" term="Tech Sharing"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Apache Doris 1.2 TPC-H Performance Test Report]]></title>
+        <title type="html"><![CDATA[Apache Doris 1.2 TPC-H performance test report]]></title>
         <id>https://doris.apache.org/zh-CN/blog/tpch</id>
         <link href="https://doris.apache.org/zh-CN/blog/tpch"/>
         <updated>2022-11-22T00:00:00.000Z</updated>
@@ -816,7 +816,7 @@ More precision operation:</li><li>Build a rich user analysis model</li><li>Impro
         <category label="Release Notes" term="Release Notes"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Doris Stream Load Principle Analysis]]></title>
+        <title type="html"><![CDATA[Doris stream load principle analysis]]></title>
         <id>https://doris.apache.org/zh-CN/blog/principle-of-Doris-Stream-Load</id>
         <link href="https://doris.apache.org/zh-CN/blog/principle-of-Doris-Stream-Load"/>
         <updated>2022-09-08T00:00:00.000Z</updated>
@@ -853,7 +853,7 @@ This article mainly introduces the principle of Doris SQL parsing.</p><p>It focu
         <category label="Tech Sharing" term="Tech Sharing"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Best Practice of Apache Doris in JD]]></title>
+        <title type="html"><![CDATA[Best practice of Apache Doris in JD]]></title>
         <id>https://doris.apache.org/zh-CN/blog/jd</id>
         <link href="https://doris.apache.org/zh-CN/blog/jd"/>
         <updated>2022-07-20T00:00:00.000Z</updated>
@@ -865,7 +865,7 @@ This article mainly introduces the principle of Doris SQL parsing.</p><p>It focu
         <category label="Best Practice" term="Best Practice"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Best Practice of Apache Doris in Meituan]]></title>
+        <title type="html"><![CDATA[Best practice of Apache Doris in Meituan]]></title>
         <id>https://doris.apache.org/zh-CN/blog/meituan</id>
         <link href="https://doris.apache.org/zh-CN/blog/meituan"/>
         <updated>2022-07-20T00:00:00.000Z</updated>
@@ -877,7 +877,7 @@ This article mainly introduces the principle of Doris SQL parsing.</p><p>It focu
         <category label="Best Practice" term="Best Practice"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Best Practice of Apache Doris in Xiaomi Group]]></title>
+        <title type="html"><![CDATA[Best practice of Apache Doris in Xiaomi Group]]></title>
         <id>https://doris.apache.org/zh-CN/blog/xiaomi</id>
         <link href="https://doris.apache.org/zh-CN/blog/xiaomi"/>
         <updated>2022-07-20T00:00:00.000Z</updated>
@@ -907,7 +907,7 @@ At the same time, using the String type as a partitioning or bucketing column of
         <category label="Release Notes" term="Release Notes"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Announcing Open Source Realtime Analytical database Apache Doris as a Top-Level Project]]></title>
+        <title type="html"><![CDATA[Announcing open source realtime analytical database Apache Doris as a top-level project]]></title>
         <id>https://doris.apache.org/zh-CN/blog/Annoucing</id>
         <link href="https://doris.apache.org/zh-CN/blog/Annoucing"/>
         <updated>2022-06-16T00:00:00.000Z</updated>
@@ -919,7 +919,7 @@ At the same time, using the String type as a partitioning or bucketing column of
         <category label="Top News" term="Top News"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Apache Doris(Incubating) announced 1.0.0 Release]]></title>
+        <title type="html"><![CDATA[Apache Doris(Incubating) announced 1.0.0 release]]></title>
         <id>https://doris.apache.org/zh-CN/blog/release-note-1.0.0</id>
         <link href="https://doris.apache.org/zh-CN/blog/release-note-1.0.0"/>
         <updated>2022-04-18T00:00:00.000Z</updated>
@@ -931,7 +931,7 @@ At the same time, using the String type as a partitioning or bucketing column of
         <category label="Release Notes" term="Release Notes"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Apache Doris(Incubating) annoucned 0.15.0 Release]]></title>
+        <title type="html"><![CDATA[Apache Doris(Incubating) annoucned 0.15.0 release]]></title>
         <id>https://doris.apache.org/zh-CN/blog/release-note-0.15.0</id>
         <link href="https://doris.apache.org/zh-CN/blog/release-note-0.15.0"/>
         <updated>2021-11-29T00:00:00.000Z</updated>
