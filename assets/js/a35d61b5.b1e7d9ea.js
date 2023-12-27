@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdoris_website=self.webpackChunkdoris_website||[]).push([[5775],{78590:e=>{e.exports=JSON.parse('{"label":"Best Practice","permalink":"/blog/tags/best-practice","allTagsPath":"/blog/tags","count":31}')}}]);
