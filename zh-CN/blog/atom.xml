@@ -2,11 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://doris.apache.org/zh-CN/blog</id>
     <title>Apache Doris Blog</title>
-    <updated>2024-01-08T00:00:00.000Z</updated>
+    <updated>2024-01-26T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://doris.apache.org/zh-CN/blog"/>
     <subtitle>Apache Doris Blog</subtitle>
     <icon>https://doris.apache.org/zh-CN/images/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Apache Doris 2.0.4 just released]]></title>
+        <id>https://doris.apache.org/zh-CN/blog/release-note-2.0.4</id>
+        <link href="https://doris.apache.org/zh-CN/blog/release-note-2.0.4"/>
+        <updated>2024-01-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<!--]]></summary>
+        <content type="html"><![CDATA[<p>Thanks to our community users and developers, about 333 improvements and bug fixes have been made in Doris 2.0.4 version.</p><p><strong>Quick Download</strong> : <a href="https://doris.apache.org/download/" target="_blank" rel="noopener noreferrer">https://doris.apache.org/download/</a></p><p><strong>GitHub</strong> : <a href="https://github.com/apache/doris/releases" target="_blank" rel="noopener noreferrer">https://github.com/apache/doris/releases</a></p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="behavior-change">Behavior change<a href="#behavior-change" class="hash-link" aria-label="Behavior change的直接链接" title="Behavior change的直接链接">​</a></h2><ul><li><p>More reasonable and accurate precision and scale inference for decimal data type
+<a href="https://github.com/apache/doris/pull/28034" target="_blank" rel="noopener noreferrer">[improvement](decimal) use new way for decimal arithmetic precision promotion(#27787) #28034</a></p></li><li><p>Support drop policy for user or role
+<a href="https://github.com/apache/doris/pull/29488" target="_blank" rel="noopener noreferrer">[fix](polixy)support drop policy for user or role #29488</a></p></li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="new-features">New features<a href="#new-features" class="hash-link" aria-label="New features的直接链接" title="New features的直接链接">​</a></h2><ul><li>Support datev1, datetimev1 and decimalv2 datatypes in new optimizer Nereids.</li><li>Support ODBC table for new optimizer Nereids.</li><li>Add <code>lower_case</code> and <code>ignore_above</code> option for inverted index</li><li>Support <code>match_regexp</code> and <code>match_phrase_prefix</code> optimization by inverted index</li><li>Support paimon native reader in datalake</li><li>Support audit-log for <code>insert into</code> SQL</li><li>Support reading parquet file in lzo compressed format</li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="three-improvement-and-optimizations">Three Improvement and optimizations<a href="#three-improvement-and-optimizations" class="hash-link" aria-label="Three Improvement and optimizations的直接链接" title="Three Improvement and optimizations的直接链接">​</a></h2><ul><li>Improve storage management including balance, migration, publish and others.</li><li>Improve storage cooldown policy to use save disk space.</li><li>Performance optimization for substr with ascii string.</li><li>Improve partition prune when date function is used.</li><li>Improve auto analyze visibility and performance.</li></ul><p>See the complete list of improvements and bug fixes on github <a href="https://github.com/apache/doris/issues?q=label%3Adev%2F2.0.4-merged+is%3Aclosed" target="_blank" rel="noopener noreferrer">dev/2.0.4-merged</a></p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="credits">Credits<a href="#credits" class="hash-link" aria-label="Credits的直接链接" title="Credits的直接链接">​</a></h2><p>Last but not least, this release would not have been possible without the following contributors: </p><p>airborne12, amorynan, AshinGau, BePPPower, bingquanzhao, BiteTheDDDDt, bobhan1, ByteYue, caiconghui,CalvinKirs, cambyzju, caoliang-web, catpineapple, csun5285, dataroaring, deardeng, dutyu, eldenmoon, englefly, feifeifeimoon, fornaix, Gabriel39, gnehil, HappenLee, hello-stephen, HHoflittlefish777,hubgeter, hust-hhb, ixzc, jacktengg, jackwener, Jibing-Li, kaka11chen, KassieZ, LemonLiTree,liaoxin01, LiBinfeng-01, lihuigang, liugddx, luwei16, morningman, morrySnow, mrhhsg, Mryange, nextdreamblue, Nitin-Kashyap, platoneko, py023, qidaye, shuke987, starocean999, SWJTU-ZhangLei, w41ter, wangbo, wsjz, wuwenchi, Xiaoccer, xiaokang, XieJiann, xingyingone, xinyiZzz, xuwei0912, xy720, xzj7019, yujun777, zclllyybb, zddr, zhangguoqiang666, zhangstar333, zhannngchen, zhiqiang-hhhh, zy-kkk, zzzxl1993</p>]]></content>
+        <author>
+            <name>Apache Doris</name>
+        </author>
+        <category label="Release Notes" term="Release Notes"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[The financial sector's choice: fast, secure, and highly available real-time data warehousing based on Apache Doris]]></title>
         <id>https://doris.apache.org/zh-CN/blog/a-fast-secure-high-available-real-time-data-warehouse-based-on-apache-doris</id>
