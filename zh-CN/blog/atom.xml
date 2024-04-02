@@ -29,7 +29,7 @@
         <author>
             <name>Apache Doris</name>
         </author>
-        <category label="Release Notes" term="Release Notes"/>
+        <category label="Tech Sharing" term="Tech Sharing"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Another big leap: Apache Doris 2.1.0 is released]]></title>
